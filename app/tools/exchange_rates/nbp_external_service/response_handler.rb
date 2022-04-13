@@ -14,11 +14,11 @@ module ExchangeRates
         when 200
           { status: 'success', rate: extracted_rate(nbp_response) }
         when 404
-          { status: 'failure', error: 'Missing data' }
+          { status: 'failure', error: 'Service is missing data' }
         when 400
           { status: 'failure', error: 'Invalid request' }
         else
-          { status: 'failure', error: 'Service is offline' }
+          { status: 'failure', error: 'Service is unavailable' }
         end
       end
 

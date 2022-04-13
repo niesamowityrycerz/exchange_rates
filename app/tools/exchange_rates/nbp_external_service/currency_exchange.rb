@@ -16,13 +16,13 @@ module ExchangeRates
         response = HTTP.get(uri)
         handler = ResponseHandler.new(response).call
 
-        return handler[:error] if handler[:status] == 'failure'
+        return handler if handler[:status] == 'failure'
 
         total_orders_eur = convert_total_orders_pln(handler[:rate])
         ActiveRecord::Base.transaction do
           update_user(total_orders_eur)
           create_exchange_rates_accont(total_orders_eur)
-          prepared_response
+          { user: user, status: 'success' }
         end
       end
 
@@ -41,12 +41,10 @@ module ExchangeRates
       end
 
       def create_exchange_rates_accont(total_orders_eur)
-        ExchangeRates::Account.new(total_orders_eur: total_orders_eur)
+        account = ExchangeRates::Account.find_or_create_by!(owner_id: user.id)
+        account.update!(total_orders_eur: total_orders_eur, total_orders_pln: user.total_orders_pln)
       end
 
-      def prepared_response
-        { user: user }
-      end
     end
   end
 end
