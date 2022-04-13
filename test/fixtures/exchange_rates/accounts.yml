@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  total_orders_pln: 9.99
+  total_orders_eur: 9.99
+
+two:
+  description: MyText
+  total_orders_pln: 9.99
+  total_orders_eur: 9.99
