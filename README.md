@@ -1,28 +1,3 @@
 # ExchangeRates
-Short description and motivation.
 
-## Usage
-How to use my plugin.
-
-## Installation
-Add this line to your application's Gemfile:
-
-```ruby
-gem "exchange_rates"
-```
-
-And then execute:
-```bash
-$ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install exchange_rates
-```
-
-## Contributing
-Contribution directions go here.
-
-## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+All of the neccessary information is covered in Core_api README.md: https://github.com/niesamowityrycerz/core_api
